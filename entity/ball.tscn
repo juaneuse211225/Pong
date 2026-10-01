@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://de78u6sepvyir"]
+
+[ext_resource type="Script" uid="uid://bflk7km14f5u2" path="res://entity/scripts/ball.gd" id="1_41u45"]
+[ext_resource type="Texture2D" uid="uid://dfqqcjf7yhmd8" path="res://assets/ballGodot.png" id="1_x8fbi"]
+[ext_resource type="AudioStream" uid="uid://cagteb4jmbmy5" path="res://effect/Doing.mp3" id="3_3b27u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cbx31"]
+radius = 29.017237
+
+[node name="Ball" type="CharacterBody2D" unique_id=1946754234]
+script = ExtResource("1_41u45")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1614323670]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_x8fbi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1354189420]
+shape = SubResource("CircleShape2D_cbx31")
+
+[node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=737697978]
+stream = ExtResource("3_3b27u")

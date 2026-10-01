@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://da8nnse7hu2wu"]
+
+[ext_resource type="PackedScene" uid="uid://bx8j7svrtatrd" path="res://entity/player.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://c3ucw2bualwxn" path="res://GUI/script/game.gd" id="1_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://buh7diarn0uee" path="res://entity/wall.tscn" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://de78u6sepvyir" path="res://entity/ball.tscn" id="3_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://xhrbej3ty1jw" path="res://GUI/hud.tscn" id="5_7jktm"]
+[ext_resource type="PackedScene" uid="uid://vo8rn2qgkgll" path="res://GUI/end_game.tscn" id="6_xb34q"]
+[ext_resource type="PackedScene" uid="uid://fwkmhwagiptf" path="res://GUI/pause_menu.tscn" id="7_ydj4p"]
+[ext_resource type="AudioStream" uid="uid://gcm3i8or4qia" path="res://effect/GameOver.wav" id="8_e8tx0"]
+[ext_resource type="AudioStream" uid="uid://cyvj645e4pfs1" path="res://effect/Victory.wav" id="9_hic43"]
+
+[node name="Game" type="Node2D" unique_id=1327875765]
+process_mode = 1
+script = ExtResource("1_fc0e3")
+
+[node name="Player1" parent="." unique_id=1284642617 groups=["players"] instance=ExtResource("1_80nbo")]
+position = Vector2(171, 324)
+collision_layer = 2
+collision_mask = 4
+
+[node name="Player2" parent="." unique_id=378749845 groups=["players"] instance=ExtResource("1_80nbo")]
+position = Vector2(981, 324)
+collision_layer = 2
+collision_mask = 4
+player = 2
+is_ai = true
+ai_error = 40.0
+
+[node name="WallTop" parent="." unique_id=1866806591 instance=ExtResource("2_feb5d")]
+position = Vector2(576, 30)
+collision_layer = 4
+
+[node name="WallBotton" parent="." unique_id=483977436 instance=ExtResource("2_feb5d")]
+position = Vector2(576, 623)
+collision_layer = 4
+
+[node name="Ball" parent="." unique_id=1946754234 instance=ExtResource("3_fc0e3")]
+position = Vector2(576, 324)
+collision_mask = 6
+maxSpeed = 800.0
+
+[node name="HUD" parent="." unique_id=363956617 instance=ExtResource("5_7jktm")]
+visible = false
+follow_viewport_enabled = true
+
+[node name="MenusContainer" type="CanvasLayer" parent="." unique_id=86665343]
+
+[node name="EndGame" parent="MenusContainer" unique_id=213226535 instance=ExtResource("6_xb34q")]
+
+[node name="PauseMenu" parent="MenusContainer" unique_id=933558257 instance=ExtResource("7_ydj4p")]
+
+[node name="DefeatMusic" type="AudioStreamPlayer" parent="." unique_id=57905614]
+process_mode = 3
+stream = ExtResource("8_e8tx0")
+
+[node name="VictoryMusic" type="AudioStreamPlayer" parent="." unique_id=677330973]
+process_mode = 3
+stream = ExtResource("9_hic43")

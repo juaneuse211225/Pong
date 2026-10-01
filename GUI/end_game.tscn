@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://vo8rn2qgkgll"]
+
+[ext_resource type="Script" uid="uid://bxebgvhk3o0l3" path="res://GUI/script/end_game.gd" id="1_s555x"]
+[ext_resource type="FontFile" uid="uid://4xs3ykh6opti" path="res://font/Wordsized.ttf" id="1_ys1a3"]
+[ext_resource type="AudioStream" uid="uid://cagteb4jmbmy5" path="res://effect/Doing.mp3" id="3_lwaks"]
+
+[node name="EndGame" type="Control" unique_id=213226535]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s555x")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1389872118]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.13725491, 0.13725491, 0.13725491, 0.72156864)
+
+[node name="Restart" type="Button" parent="." unique_id=1068321868]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 470.0
+offset_right = 389.0
+offset_bottom = 543.0
+theme_override_fonts/font = ExtResource("1_ys1a3")
+theme_override_font_sizes/font_size = 64
+text = "Restart"
+
+[node name="Quit" type="Button" parent="." unique_id=1682263691]
+layout_mode = 0
+offset_left = 851.0
+offset_top = 470.0
+offset_right = 1008.0
+offset_bottom = 543.0
+theme_override_fonts/font = ExtResource("1_ys1a3")
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1601026256]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 37.0
+offset_right = 883.0
+offset_bottom = 162.0
+theme_override_fonts/font = ExtResource("1_ys1a3")
+theme_override_font_sizes/font_size = 124
+text = "	VICTORY"
+
+[node name="FinalScoreLabel" type="Label" parent="." unique_id=1804064239]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 347.0
+offset_right = 647.0
+offset_bottom = 434.0
+theme_override_fonts/font = ExtResource("1_ys1a3")
+theme_override_font_sizes/font_size = 42
+text = "N - N
+"
+
+[node name="Label" type="Label" parent="." unique_id=1871050005]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 213.0
+offset_right = 775.0
+offset_bottom = 255.0
+theme_override_fonts/font = ExtResource("1_ys1a3")
+theme_override_font_sizes/font_size = 42
+text = "PLAYER N WINNS"
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=213119331]
+process_mode = 3
+stream = ExtResource("3_lwaks")
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

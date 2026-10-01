@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b821myv7hqira"]
+
+[ext_resource type="Script" uid="uid://i27vybtrxuti" path="res://script/main.gd" id="1_h2yge"]
+[ext_resource type="AudioStream" uid="uid://3m1bo5u5oyge" path="res://effect/Karma.wav" id="2_0xm2m"]
+
+[node name="Main" type="Node" unique_id=1830486479]
+script = ExtResource("1_h2yge")
+
+[node name="SceneContainer" type="Node" parent="." unique_id=441873182]
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="." unique_id=147848354]
+stream = ExtResource("2_0xm2m")
+volume_db = -5.059

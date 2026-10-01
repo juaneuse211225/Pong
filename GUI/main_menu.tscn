@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://inb8ures01bt"]
+
+[ext_resource type="Script" uid="uid://deovq71mfieor" path="res://GUI/script/main_menu.gd" id="1_38be4"]
+[ext_resource type="FontFile" uid="uid://4xs3ykh6opti" path="res://font/Wordsized.ttf" id="1_kf0uv"]
+[ext_resource type="AudioStream" uid="uid://cagteb4jmbmy5" path="res://effect/Doing.mp3" id="3_rhcmj"]
+
+[node name="MainMenu" type="Control" unique_id=963518107]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_38be4")
+
+[node name="Background" type="ColorRect" parent="." unique_id=959903967]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 651.0
+color = Color(0.13725491, 0.13725491, 0.13725491, 0.72156864)
+
+[node name="OnePlayer" type="Button" parent="." unique_id=1954398728]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 261.0
+offset_right = 793.0
+offset_bottom = 334.0
+theme_override_fonts/font = ExtResource("1_kf0uv")
+theme_override_font_sizes/font_size = 64
+text = "Single Player"
+
+[node name="TwoPlayers" type="Button" parent="." unique_id=131799394]
+layout_mode = 0
+offset_left = 345.0
+offset_top = 373.0
+offset_right = 769.0
+offset_bottom = 446.0
+theme_override_fonts/font = ExtResource("1_kf0uv")
+theme_override_font_sizes/font_size = 64
+text = "Two Players
+"
+
+[node name="Quit" type="Button" parent="." unique_id=811982801]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 506.0
+offset_right = 629.0
+offset_bottom = 579.0
+theme_override_fonts/font = ExtResource("1_kf0uv")
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+
+[node name="Title" type="Label" parent="." unique_id=892532575]
+layout_mode = 0
+offset_left = 367.0
+offset_top = 60.0
+offset_right = 739.0
+offset_bottom = 185.0
+theme_override_fonts/font = ExtResource("1_kf0uv")
+theme_override_font_sizes/font_size = 124
+text = "Pong!"
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=1555293621]
+stream = ExtResource("3_rhcmj")
+
+[connection signal="pressed" from="OnePlayer" to="." method="_on_btn_single_player_pressed"]
+[connection signal="pressed" from="TwoPlayers" to="." method="_on_btn_two_players_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_btn_quit_pressed"]
